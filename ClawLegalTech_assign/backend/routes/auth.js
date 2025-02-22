@@ -7,7 +7,9 @@ const jwt = require('jsonwebtoken');
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  console.log("getting data for auth route");
   try {
+    console.log("getting data for auth route inside try");
     const user = await User.findOne({ username });
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
 
